@@ -1,0 +1,37 @@
+<h1>Add Form</h1>
+
+<form [formGroup]="createForm" (ngSubmit)="Save()">
+
+  <label>
+    Title: <input class="form-control" formControlName="title" />
+  </label>
+  <h2>Fields</h2>
+
+  <div formArrayName="fields">
+    <div *ngFor="let item of fields.controls; let fieldIndex=index" [formGroupName]="fieldIndex">
+    <label>
+      Label: <input class="form-control" formControlName="labelname" />
+    </label> &nbsp;
+	<label>
+      Key: <input class="form-control" formControlName="keyname" />
+    </label>
+	&nbsp;
+	<label>
+      Required: <input class="form-control" formControlName="require" />
+    </label>
+	&nbsp;
+	<label>
+      Minlength: <input class="form-control" formControlName="minlength" />
+    </label>
+	&nbsp;
+	<label>
+      Maxlength: <input class="form-control" formControlName="maxlength" />
+    </label>
+	&nbsp;<button type="button" class="btn btn-danger" (click)="deleteFields(fieldIndex)">x</button>
+    </div>
+	<button type="button" class="btn btn-success" (click)="addFields()">Add +</button>
+  </div>
+  <div class="clear">&nbsp;</div>
+   <button type="submit" class="btn btn-success">Submit</button> &nbsp;
+   <button type="buuton" class="btn btn-warning">Back</button>
+</form>

@@ -1,0 +1,24 @@
+<div class="container">
+	<h4>Dynamic Forms List <a  routerLink="/form-new"><button class="btn btn-success pull-right">Add New Form</button></a></h4>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>S.No</th>
+				<th>Form Name</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let template of templates">
+				<td>{{template.id}}</td>
+				<td>{{template.name}}</td>
+				<td>
+					<a routerLink="/detail/{{template.id}}">View</a> &nbsp;
+					<a routerLink="/list/{{template.id}}">List</a> &nbsp;
+					<a routerLink="/remove/{{template.id}}">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+		
+	</table>
+</div>
