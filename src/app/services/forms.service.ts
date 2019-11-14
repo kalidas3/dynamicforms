@@ -19,4 +19,14 @@ export class FormsService {
       );
 	  
   }
+  
+  GetForms(info:any)
+  {
+	  return this.http.post(this.url+'templates.php',{id : info});
+  }
+ 
+  RemoveForms(info:any)
+  {
+	 return this.http.delete(this.url+'add-vehicle.php?id='+info);
+  }
 }
